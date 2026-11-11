@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#07141b" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Neon Coast — Open City Drive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <canvas id="scene" aria-label="Neon Coast 3D driving game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">NC</span><span class="brand-name">NEON<span>COAST</span></span></div>
+      <div class="district"><span class="live-dot"></span><span id="districtName">PALM HEIGHTS</span><i>•</i><span id="clock">21:08</span></div>
+      <button id="audioBtn" class="icon-btn" aria-label="Toggle sound">♫ <span>SOUND</span></button>
+    </header>
+
+    <section class="mission-card" id="missionCard">
+      <div class="card-eyebrow"><span class="eyebrow-line"></span> AFTER HOURS <span class="mission-count" id="missionCount">01 / 04</span></div>
+      <div class="mission-title" id="missionTitle">THE NIGHT SHIFT</div>
+      <div class="mission-copy" id="missionCopy">Make the drop. Keep it clean.</div>
+      <div class="mission-progress"><div id="progressFill"></div></div>
+      <div class="mission-footer"><span id="missionHint">FOLLOW THE GOLD</span><span id="reward">+$250</span></div>
+    </section>
+
+    <section class="right-stack">
+      <div class="wanted-panel"><div class="wanted-label">HEAT</div><div class="stars" id="stars">☆☆☆☆☆</div><div class="wanted-note" id="heatNote">OFF THE RADAR</div></div>
+      <div class="map-frame"><canvas id="minimap" width="180" height="180"></canvas><div class="map-label">COASTLINE</div></div>
+    </section>
+
+    <div class="target-chip" id="targetChip"><span class="target-arrow">↗</span><span><b id="targetDistance">240</b><small> M TO DROP</small></span></div>
+    <div class="toast" id="toast">NICE DRIVING</div>
+
+    <section class="vehicle-hud">
+      <div class="gear"><span id="gearLabel">D</span><small>GEAR</small></div>
+      <div class="speed"><span id="speedValue">000</span><small>KM/H</small></div>
+      <div class="car-health"><div class="health-top"><span>VEHICLE</span><span id="healthPct">100%</span></div><div class="health-track"><i id="healthFill"></i></div></div>
+      <div class="cash"><small>WALLET</small><b id="cashValue">$2,450</b></div>
+    </section>
+
+    <div class="controls-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>DRIVE</span><kbd>SPACE</kbd><span>HANDBRAKE</span></div>
+    <div class="touch-controls" aria-label="Touch driving controls">
+      <div class="steer-group"><button class="touch-btn steer" data-control="left" aria-label="Steer left">‹</button><button class="touch-btn steer" data-control="right" aria-label="Steer right">›</button></div>
+      <div class="pedal-group"><button class="touch-btn brake" data-control="brake"><span>−</span><small>BRAKE</small></button><button class="touch-btn accelerate" data-control="gas"><span>＋</span><small>GAS</small></button></div>
+    </div>
+    <div class="mission-complete" id="missionComplete"><div class="complete-icon">✓</div><span class="complete-kicker">DROP COMPLETE</span><strong>GOOD WORK.</strong><p id="completeText">The city owes you one.</p><button id="continueBtn">NEXT RUN <span>→</span></button></div>
+
+    <div class="intro" id="intro">
+      <div class="intro-panel">
+        <div class="intro-kicker"><span></span> A CITY THAT NEVER SLEEPS</div>
+        <h1>NEON<br><em>COAST</em></h1>
+        <p>One ride. Four drops. The whole city is yours.</p>
+        <button id="startBtn">START YOUR SHIFT <span>→</span></button>
+        <div class="intro-meta"><span>OPEN CITY DRIVE</span><i></i><span>ALL NIGHT • 1987</span></div>
+      </div>
+      <div class="intro-skip">WASD / ARROWS TO DRIVE <span>·</span> TOUCH CONTROLS SUPPORTED</div>
+    </div>
+
+    <div class="pause-screen hidden" id="pauseScreen"><div><span class="pause-kicker">TAKE A BREATH</span><h2>PAUSED</h2><button id="resumeBtn">BACK TO THE CITY</button><p>Press <kbd>ESC</kbd> to resume</p></div></div>
+    <div class="loading" id="loading"><span class="loader"></span><b>BUILDING YOUR CITY</b></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
